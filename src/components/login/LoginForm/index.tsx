@@ -32,11 +32,22 @@ const LoginForm = () => {
     <Container onSubmit={formik.handleSubmit}>
       <div className="top_content">
         <LogoContainer />
-        <LabelWrapper label="email">
-          <Input placeholder="Email" name="email" onChange={formik.handleChange} value={formik.values.email} />
+        <LabelWrapper label="Email">
+          <Input
+            placeholder="Enter your email"
+            name="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
         </LabelWrapper>
         <LabelWrapper label="Password">
-          <Input placeholder="Password" name="password" onChange={formik.handleChange} value={formik.values.password} />
+          <Input
+            placeholder="Enter your password"
+            type="password"
+            name="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
         </LabelWrapper>
       </div>
       <div className="bottom_content">

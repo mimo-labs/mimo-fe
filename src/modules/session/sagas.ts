@@ -1,6 +1,7 @@
 // sagas
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
+import { push } from 'connected-react-router';
 
 // action creators
 import { SessionTypes, loginSuccess, loginFailure } from './actions';
@@ -20,6 +21,8 @@ function* loginWorker(values: LoginRequestAction): SagaIterator {
     const data = yield call(login, email, password);
 
     yield put(loginSuccess(data));
+
+    yield put(push('/dashboard'));
   } catch (error) {
     yield put(loginFailure(error));
   }

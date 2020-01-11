@@ -4,7 +4,7 @@ import React from 'react';
 import { Container } from './styled';
 
 // type
-import { LoginLayoutProps } from './_types';
+import { LoginLayoutProps } from './types';
 
 const LoginLayout = ({ children }: LoginLayoutProps) => <Container>{children}</Container>;
 
