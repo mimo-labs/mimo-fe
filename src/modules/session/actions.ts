@@ -8,10 +8,10 @@ export enum SessionTypes {
 }
 
 // action creators
-export const loginRequest = (mail: string, password: string): LoginRequestAction => ({
+export const loginRequest = (email: string, password: string): LoginRequestAction => ({
   type: SessionTypes.LOG_IN_REQUEST,
   payload: {
-    mail,
+    email,
     password,
   },
 });
@@ -29,7 +29,7 @@ export const loginFailure = (err: unknown): LoginFailureAction => ({
 export type LoginRequestAction = {
   type: SessionTypes.LOG_IN_REQUEST;
   payload: {
-    mail: string;
+    email: string;
     password: string;
   };
 };

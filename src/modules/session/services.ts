@@ -1,14 +1,20 @@
 // typesk
 import { LoginResponse } from './types';
 
-export const login = (mail: string, password: string): Promise<LoginResponse> =>
+// lib
+import { BASE_URL } from 'lib/constants';
+
+export const login = (email: string, password: string): Promise<LoginResponse> =>
   new Promise((resolve) =>
-    fetch('/login', {
+    fetch(`${BASE_URL}/login`, {
       method: 'POST',
       body: JSON.stringify({
-        mail,
+        email,
         password,
       }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
       .then((response) => response.json())
       .then((data) => resolve(data)),

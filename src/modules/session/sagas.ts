@@ -14,7 +14,12 @@ import { LoginRequestAction } from './actions';
 // workers
 function* loginWorker(values: LoginRequestAction): SagaIterator {
   try {
-    // yield put(logInSuccess())
+    const { payload } = values;
+    const { email, password } = payload;
+
+    const data = yield call(login, email, password);
+
+    yield put(loginSuccess(data));
   } catch (error) {
     yield put(loginFailure(error));
   }
@@ -24,5 +29,3 @@ function* loginWorker(values: LoginRequestAction): SagaIterator {
 export function* loginWatcher(): SagaIterator {
   yield takeLatest(SessionTypes.LOG_IN_REQUEST, loginWorker);
 }
-
-export const sagas = [loginWatcher];

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 // styled
@@ -11,15 +12,16 @@ import { loginRequest } from 'modules/session/actions';
 import LabelWrapper from 'components/common/LabelWrapper';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
-      mail: '',
+      email: '',
       password: '',
     },
     onSubmit: (values) => {
       try {
-        console.log(values);
-        loginRequest(values.mail, values.password);
+        dispatch(loginRequest(values.email, values.password));
       } catch (error) {
         console.error(error);
       }
@@ -30,8 +32,8 @@ const LoginForm = () => {
     <Container onSubmit={formik.handleSubmit}>
       <div className="top_content">
         <LogoContainer />
-        <LabelWrapper label="Mail">
-          <Input placeholder="Mail" name="mail" onChange={formik.handleChange} value={formik.values.mail} />
+        <LabelWrapper label="email">
+          <Input placeholder="Email" name="email" onChange={formik.handleChange} value={formik.values.email} />
         </LabelWrapper>
         <LabelWrapper label="Password">
           <Input placeholder="Password" name="password" onChange={formik.handleChange} value={formik.values.password} />
