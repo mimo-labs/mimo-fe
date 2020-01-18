@@ -8,7 +8,10 @@ import Logo from 'components/common/Logo';
 import Header from 'components/common/Header';
 import Sidebar from 'components/common/Sidebar';
 
-const MainLayout = ({ children }) => (
+// types
+import { MainLayoutProps } from './types';
+
+const MainLayout = ({ children }: MainLayoutProps) => (
   <Container>
     <Logo />
     <Header />

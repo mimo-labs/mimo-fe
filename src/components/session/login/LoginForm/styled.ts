@@ -30,15 +30,20 @@ export const Container = styled.form`
   }
 `;
 
-export const LogoContainer = styled.div`
+export const LogoWrapper = styled.div`
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   width: 7rem;
   height: 5rem;
-  border: 2px solid ${COLORS.black.one};
   margin-bottom: ${MARGINS.two};
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Input = styled(BaseInput)`

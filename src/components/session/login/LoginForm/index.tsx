@@ -3,10 +3,13 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 // styled
-import { Container, Input, LogoContainer, Button } from './styled';
+import { Container, Input, LogoWrapper, Button } from './styled';
 
 // modules
 import { loginRequest } from 'modules/session/actions';
+
+// assets
+import { ReactComponent as MimeLogo } from 'assets/icons/mime.svg';
 
 // lib
 import LabelWrapper from 'components/common/LabelWrapper';
@@ -31,7 +34,9 @@ const LoginForm = () => {
   return (
     <Container onSubmit={formik.handleSubmit}>
       <div className="top_content">
-        <LogoContainer />
+        <LogoWrapper>
+          <MimeLogo />
+        </LogoWrapper>
         <LabelWrapper label="Email">
           <Input
             placeholder="Enter your email"

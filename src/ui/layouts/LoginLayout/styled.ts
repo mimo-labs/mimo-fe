@@ -12,9 +12,10 @@ export const Container = styled.section`
   align-items: center;
 
   background: repeating-linear-gradient(
+    to right,
     ${COLORS.black.one},
-    ${COLORS.black.one} 52px,
-    ${COLORS.white.one} 52px,
-    ${COLORS.white.one} 104px
+    ${COLORS.black.one} 8px,
+    ${COLORS.white.one} 8px,
+    ${COLORS.white.one} 100px
   );
 `;

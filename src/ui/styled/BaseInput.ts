@@ -7,7 +7,7 @@ export const BaseInput = styled.input`
   height: 1.75rem;
 
   border: 2px solid ${COLORS.black.one};
-  border-radius: 2px;
+  border-radius: 4px;
 
   color: ${COLORS.black.one};
   background-color: ${COLORS.white};
