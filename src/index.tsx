@@ -8,16 +8,15 @@ import './lib/reset.css';
 
 // pages
 import Home from 'pages/home';
-import Login from 'pages/login';
+import Login from 'modules/session/pages/login';
 
 // redux
-import { configureStore, history } from './store';
+import { store, persistor, history } from './store';
 
 // constants
 import { ROUTES } from 'lib/constants';
 
 // store
-const { store, persistor } = configureStore();
 
 const App = () => (
   <StrictMode>

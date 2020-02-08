@@ -44,4 +44,6 @@ function configureStore() {
   return { store, persistor };
 }
 
-export { configureStore, history };
+const { store, persistor } = configureStore();
+
+export { store, persistor, history };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import LoginForm from 'components/session/login/LoginForm';
+import LoginForm from 'modules/session/components/LoginForm';
 
 // ui
 import SessionLayout from 'ui/layouts/SessionLayout';

@@ -3,32 +3,34 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 // styled
-import { Form, Input, LogoWrapper, Button, Ball } from './styled';
+import { Form, Input, Button } from './styled';
+
+// types
+import { LoginFormValues } from './types';
 
 // modules
 import { loginRequest } from 'modules/session/actions';
 
-// assets
-import { ReactComponent as MimeLogo } from 'assets/icons/mime.svg';
-
 // lib
-import LabelWrapper from 'components/common/LabelWrapper';
+import LabelWrapper from 'ui/components/LabelWrapper';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const formik = useFormik({
+  const handleSubmit = (values: LoginFormValues) => {
+    try {
+      dispatch(loginRequest(values.email, values.password));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const formik = useFormik<LoginFormValues>({
     initialValues: {
       email: '',
       password: '',
     },
-    onSubmit: (values) => {
-      try {
-        dispatch(loginRequest(values.email, values.password));
-      } catch (error) {
-        console.error(error);
-      }
-    },
+    onSubmit: (values) => handleSubmit(values),
   });
 
   useEffect(() => {
@@ -38,13 +40,6 @@ const LoginForm = () => {
   return (
     <Form onSubmit={formik.handleSubmit}>
       <div className="top_content">
-        <LogoWrapper>
-          <div className="logo">
-            <MimeLogo />
-          </div>
-          <Ball className="little" />
-          <Ball className="large" />
-        </LogoWrapper>
         <LabelWrapper label="Email">
           <Input
             placeholder="Enter your email"

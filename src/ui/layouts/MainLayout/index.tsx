@@ -4,9 +4,9 @@ import React from 'react';
 import { Container, Main } from './styled';
 
 // components
-import Logo from 'components/common/Logo';
-import Header from 'components/common/Header';
-import Sidebar from 'components/common/Sidebar';
+import Logo from 'ui/components/Logo';
+import Header from 'ui/components/Header';
+import Sidebar from 'ui/components/Sidebar';
 
 // types
 import { MainLayoutProps } from './types';
