@@ -4,12 +4,12 @@ import React from 'react';
 import LoginForm from 'components/session/login/LoginForm';
 
 // ui
-import LoginLayout from 'ui/layouts/LoginLayout';
+import SessionLayout from 'ui/layouts/SessionLayout';
 
 const Login = () => (
-  <LoginLayout>
+  <SessionLayout>
     <LoginForm />
-  </LoginLayout>
+  </SessionLayout>
 );
 
 export default Login;

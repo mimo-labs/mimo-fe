@@ -1,11 +1,18 @@
 export const COLORS = {
   black: {
-    one: '#0F1014',
-    two: '#1C1C1C',
+    one: '#0f1014',
+    two: '#1c1c1c',
   },
   grey: '#eeeeee',
   white: {
     one: '#ffffff',
+  },
+  red: {
+    one: '#f22222',
+    two: '#d90000',
+    three: '#a60000',
+    four: '#820000',
+    five: '#780202',
   },
 };
 

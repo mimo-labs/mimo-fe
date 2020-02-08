@@ -14,8 +14,8 @@ export const Container = styled.section`
   background: repeating-linear-gradient(
     to right,
     ${COLORS.black.one},
-    ${COLORS.black.one} 8px,
-    ${COLORS.white.one} 8px,
-    ${COLORS.white.one} 100px
+    ${COLORS.black.one} 2px,
+    ${COLORS.white.one} 2px,
+    ${COLORS.white.one} 60px
   );
 `;

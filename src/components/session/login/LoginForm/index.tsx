@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
 // styled
-import { Container, Input, LogoWrapper, Button } from './styled';
+import { Form, Input, LogoWrapper, Button, Ball } from './styled';
 
 // modules
 import { loginRequest } from 'modules/session/actions';
@@ -31,11 +31,19 @@ const LoginForm = () => {
     },
   });
 
+  useEffect(() => {
+    console.log(formik.values);
+  }, [formik]);
+
   return (
-    <Container onSubmit={formik.handleSubmit}>
+    <Form onSubmit={formik.handleSubmit}>
       <div className="top_content">
         <LogoWrapper>
-          <MimeLogo />
+          <div className="logo">
+            <MimeLogo />
+          </div>
+          <Ball className="little" />
+          <Ball className="large" />
         </LogoWrapper>
         <LabelWrapper label="Email">
           <Input
@@ -58,7 +66,7 @@ const LoginForm = () => {
       <div className="bottom_content">
         <Button type="submit">LOGIN</Button>
       </div>
-    </Container>
+    </Form>
   );
 };
 

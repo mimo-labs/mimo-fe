@@ -1,5 +1,5 @@
 import React from 'react';
 
-export type LoginLayoutProps = {
+export type SessionLayoutProps = {
   children: React.ReactNode | React.ReactNode[];
 };
