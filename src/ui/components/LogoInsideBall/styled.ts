@@ -16,8 +16,18 @@ export const Container = styled(RedBall)`
   height: 7rem;
   margin-bottom: ${MARGINS.two};
 
+  position: absolute;
+
   svg {
     width: 80%;
     height: 80%;
   }
+`;
+
+export const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2;
 `;

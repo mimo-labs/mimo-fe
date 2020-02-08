@@ -11,8 +11,9 @@ import { LoginFormValues } from './types';
 // modules
 import { loginRequest } from 'modules/session/actions';
 
-// lib
+// ui components
 import LabelWrapper from 'ui/components/LabelWrapper';
+import LogoInsideBall from 'ui/components/LogoInsideBall';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,8 @@ const LoginForm = () => {
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      <div className="top_content">
+      <LogoInsideBall />
+      <div className="top-content">
         <LabelWrapper label="Email">
           <Input
             placeholder="Enter your email"
@@ -58,7 +60,7 @@ const LoginForm = () => {
           />
         </LabelWrapper>
       </div>
-      <div className="bottom_content">
+      <div className="bottom-content">
         <Button type="submit">LOGIN</Button>
       </div>
     </Form>

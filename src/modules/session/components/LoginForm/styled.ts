@@ -26,12 +26,21 @@ export const Form = styled.form`
 
   padding: ${PADDINGS.two};
 
-  .bottom_content,
-  .top_content {
+  .bottom-content,
+  .top-content {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .top-content {
+    margin-top: 5rem;
+  }
+
+  .ball {
+    top: -3.5rem;
+    right: 3.75rem;
   }
 `;
 
