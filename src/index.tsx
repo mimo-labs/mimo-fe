@@ -7,16 +7,14 @@ import { PersistGate } from 'redux-persist/integration/react';
 import './lib/reset.css';
 
 // pages
-import Home from 'pages/home';
-import Login from 'modules/session/pages/login';
-
-// redux
-import { store, persistor, history } from './store';
-
-// constants
-import { ROUTES } from 'lib/constants';
+import Home from 'modules/mocks/pages/Home';
+import Login from 'modules/session/pages/Login';
 
 // store
+import { store, persistor, history } from './store';
+
+// lib
+import { ROUTES } from 'lib/constants';
 
 const App = () => (
   <StrictMode>

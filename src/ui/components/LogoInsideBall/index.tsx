@@ -1,7 +1,7 @@
 import React from 'react';
 
 // styled
-import { Container, Ball } from './styled';
+import { Container } from './styled';
 
 // assets
 import { ReactComponent as MimeLogo } from 'assets/icons/mime.svg';
@@ -11,8 +11,6 @@ const LogoInsideBall = () => (
     <div className="logo">
       <MimeLogo />
     </div>
-    <Ball className="little" />
-    <Ball className="large" />
   </Container>
 );
 

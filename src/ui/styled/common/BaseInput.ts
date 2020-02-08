@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// lib
 import { COLORS } from 'lib/variables';
 
 export const BaseInput = styled.input`
