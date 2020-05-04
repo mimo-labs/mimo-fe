@@ -1,12 +1,10 @@
 import React from 'react';
-
-// styled
-import { Container } from './styled';
+import { Flex, Text } from '@chakra-ui/core';
 
 const Sidebar = () => (
-  <Container>
-    <span>Sidebar</span>
-  </Container>
+  <Flex>
+    <Text>Sidebar</Text>
+  </Flex>
 );
 
 export default Sidebar;

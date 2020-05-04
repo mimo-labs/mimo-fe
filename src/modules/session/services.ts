@@ -2,7 +2,7 @@
 import { LoginResponse } from './types';
 
 // lib
-import { BASE_URL } from 'lib/constants';
+import { BASE_URL } from 'lib/api';
 
 export const login = (email: string, password: string): Promise<LoginResponse> =>
   new Promise((resolve) =>

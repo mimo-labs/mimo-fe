@@ -1,12 +1,10 @@
 import React from 'react';
-
-// styled
-import { Container } from './styled';
+import { Flex, Text } from '@chakra-ui/core';
 
 const Logo = () => (
-  <Container>
-    <span>Logo</span>
-  </Container>
+  <Flex>
+    <Text>Logo</Text>
+  </Flex>
 );
 
 export default Logo;

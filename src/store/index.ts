@@ -30,8 +30,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const initialState = {};
 
 // store creation
-function configureStore() {
-  const store = createStore(
+const configureStore = () => {
+  // TODO: Delete the any type for the correct one
+  const store: any = createStore(
     createRootReducer(history),
     initialState,
     composeEnhancers(applyMiddleware(...middlewares)),
@@ -42,7 +43,7 @@ function configureStore() {
   sagaMiddleware.run(rootSaga);
 
   return { store, persistor };
-}
+};
 
 const { store, persistor } = configureStore();
 

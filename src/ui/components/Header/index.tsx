@@ -1,12 +1,10 @@
 import React from 'react';
-
-// styled
-import { Container } from './styled';
+import { Flex, Text } from '@chakra-ui/core';
 
 const Header = () => (
-  <Container>
-    <span>Header</span>
-  </Container>
+  <Flex>
+    <Text>Header</Text>
+  </Flex>
 );
 
 export default Header;
