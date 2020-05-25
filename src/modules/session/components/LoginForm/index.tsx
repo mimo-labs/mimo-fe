@@ -1,11 +1,10 @@
 import React from 'react';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { Box, Flex, FormControl, FormLabel, Input, FormErrorMessage, Button } from '@chakra-ui/core';
 
-// modules
-import { loginRequest } from 'modules/session/actions';
+// hooks
+import { useSessionContext } from 'hooks/useSession';
 
 // types
 type LoginFormValues = {
@@ -20,14 +19,12 @@ const validationSchema = yup.object().shape({
 });
 
 const LoginForm = () => {
-  const dispatch = useDispatch();
+  const { login } = useSessionContext();
 
   const onSumbit = (values: LoginFormValues) => {
-    try {
-      dispatch(loginRequest(values.email, values.password));
-    } catch (error) {
-      console.error(error);
-    }
+    const { email, password } = values;
+
+    login(email, password);
   };
 
   const { errors, handleChange, values, handleSubmit } = useFormik<LoginFormValues>({
@@ -40,15 +37,15 @@ const LoginForm = () => {
   });
 
   return (
-    <Box bg="white" border="2px solid black" p={5} borderRadius={4}>
+    <Box bg="white" border="2px solid black" p={5} borderRadius={4} w={400}>
       <form onSubmit={handleSubmit}>
         <Flex flexDirection="column" align="center">
-          <FormControl mb={5}>
+          <FormControl mb={5} w="100%">
             <FormLabel htmlFor="email">Email</FormLabel>
             <Input placeholder="Enter your email" name="email" onChange={handleChange} value={values.email} />
             <FormErrorMessage>{errors.email}</FormErrorMessage>
           </FormControl>
-          <FormControl>
+          <FormControl w="100%">
             <FormLabel htmlFor="password">Password</FormLabel>
             <Input
               placeholder="Enter your password"
