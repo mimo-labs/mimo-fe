@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { Box, Flex, FormControl, FormLabel, Input, FormErrorMessage, Button } from '@chakra-ui/core';
 
 // hooks
-import { useSessionContext } from 'hooks/useSession';
+import { useLogin } from 'hooks/session/useLogin';
 
 // types
 type LoginFormValues = {
@@ -19,12 +19,11 @@ const validationSchema = yup.object().shape({
 });
 
 const LoginForm = () => {
-  const { login } = useSessionContext();
+  const { login } = useLogin();
 
   const onSumbit = (values: LoginFormValues) => {
     const { email, password } = values;
-
-    login(email, password);
+    login({ email, password });
   };
 
   const { errors, handleChange, values, handleSubmit } = useFormik<LoginFormValues>({

@@ -4,28 +4,30 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 
 // pages
-import Home from 'modules/mocks/pages/Home';
+import Dashboard from 'modules/mocks/pages/Dashboard';
 import Login from 'modules/session/pages/Login';
 
 // hooks
-import { SessionProvider } from 'hooks/useSession';
+import { SessionProvider } from 'hooks/common/useSession';
 
 // lib
-import { ROUTES } from 'lib/api';
+import { ROUTES } from 'lib/routes';
+import { safeGetItem } from 'lib/helpers/localStorage';
 import theme from 'lib/theme';
+
+const storedUserInfo = safeGetItem('userSession');
 
 const App = () => (
   <Router>
-    <SessionProvider>
+    <SessionProvider initialUserInfo={storedUserInfo}>
       <ThemeProvider theme={theme}>
         <CSSReset />
         <Switch>
-          {/* TODO: implement private routing */}
           <Route exact path={ROUTES.login}>
             <Login />
           </Route>
           <Route path="*">
-            <Home />
+            <Dashboard />
           </Route>
         </Switch>
       </ThemeProvider>

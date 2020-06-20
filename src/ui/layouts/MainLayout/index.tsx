@@ -2,20 +2,27 @@ import React from 'react';
 import { Grid, Flex } from '@chakra-ui/core';
 
 // components
-import Logo from 'ui/components/Logo';
 import Header from 'ui/components/Header';
-import Sidebar from 'ui/components/Sidebar';
 
 type MainLayoutProps = {
   children: React.ReactNode;
 };
 
 const MainLayout = ({ children }: MainLayoutProps) => (
-  <Grid templateRows="150px auto" templateColumns="200px 1fr">
-    <Logo />
+  <Grid
+    background="repeating-linear-gradient(
+    to right,
+    black,
+    black 2px,
+    white 2px,
+    white 60px
+  )"
+    minH="100vh"
+    templateColumns="1fr"
+    templateRows="4.5rem auto"
+  >
     <Header />
-    <Sidebar />
-    <Flex flexDirection="column" align="flex-start" justify="flex-start">
+    <Flex align="flex-start" flexDirection="column" justify="flex-start">
       {children}
     </Flex>
   </Grid>

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useToast } from '@chakra-ui/core';
 
+// TODO: Should pass down error as well
 export function usePrintError(status: string | null) {
   const toast = useToast();
 
