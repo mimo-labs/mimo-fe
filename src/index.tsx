@@ -1,41 +1,38 @@
-import React, { StrictMode } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import { Switch, Route } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/integration/react';
-import './lib/reset.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 
 // pages
-import Home from 'pages/home';
-import Login from 'pages/login';
+import Dashboard from 'modules/mocks/pages/Dashboard';
+import Login from 'modules/session/pages/Login';
 
-// redux
-import { configureStore, history } from './store';
+// hooks
+import { SessionProvider } from 'hooks/common/useSession';
 
-// constants
-import { ROUTES } from 'lib/constants';
+// lib
+import { ROUTES } from 'lib/routes';
+import { safeGetItem } from 'lib/helpers/localStorage';
+import theme from 'lib/theme';
 
-// store
-const { store, persistor } = configureStore();
+const storedUserInfo = safeGetItem('userSession');
 
 const App = () => (
-  <StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <ConnectedRouter history={history}>
-          <Switch>
-            <Route exact path={ROUTES.login}>
-              <Login />
-            </Route>
-            <Route exact path="*">
-              <Home />
-            </Route>
-          </Switch>
-        </ConnectedRouter>
-      </PersistGate>
-    </Provider>
-  </StrictMode>
+  <Router>
+    <SessionProvider initialUserInfo={storedUserInfo}>
+      <ThemeProvider theme={theme}>
+        <CSSReset />
+        <Switch>
+          <Route exact path={ROUTES.login}>
+            <Login />
+          </Route>
+          <Route path="*">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </SessionProvider>
+  </Router>
 );
 
 ReactDOM.render(<App />, document.querySelector('#root'));

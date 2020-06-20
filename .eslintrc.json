@@ -1,17 +1,9 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "extends": ["react-app", "prettier", "prettier/react"],
-  "plugins": ["prettier", "jsx-a11y"],
+  "extends": ["react-app", "eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+  "plugins": [],
   "rules": {
+    "react/prop-types": 0,
     "prettier/prettier": "error",
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
+    "react/jsx-sort-props": "error"
   }
 }
