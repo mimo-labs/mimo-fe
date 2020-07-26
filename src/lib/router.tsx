@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
 // hooks
-import { useSessionContext } from 'hooks/common/useSession';
+import { useSessionContext } from 'modules/common/hooks/useSession';
 
 // lib
 import { ROUTES } from 'lib/routes';

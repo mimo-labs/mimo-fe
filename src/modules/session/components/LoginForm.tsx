@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { Box, Flex, FormControl, FormLabel, Input, FormErrorMessage, Button } from '@chakra-ui/core';
 
 // hooks
-import { useLogin } from 'hooks/session/useLogin';
+import { useLogin } from 'modules/session/hooks/useLogin';
 
 // types
 type LoginFormValues = {
@@ -14,50 +14,52 @@ type LoginFormValues = {
 
 // schema
 const validationSchema = yup.object().shape({
-  email: yup.string().required(),
+  email: yup.string().email().required(),
   password: yup.string().required(),
 });
 
+const initialValues = {
+  email: '',
+  password: '',
+};
+
 const LoginForm = () => {
+  // custom hooks
   const { login } = useLogin();
 
-  const onSumbit = (values: LoginFormValues) => {
-    const { email, password } = values;
-    login({ email, password });
-  };
+  // handlers
+  const onSumbit = (values: LoginFormValues) => login(values);
 
+  // formik hooks
   const { errors, handleChange, values, handleSubmit } = useFormik<LoginFormValues>({
-    initialValues: {
-      email: '',
-      password: '',
-    },
+    initialValues,
     validationSchema,
     onSubmit: (values) => onSumbit(values),
   });
 
   return (
-    <Box bg="white" border="2px solid black" p={5} borderRadius={4} w={400}>
+    <Box bg="white" border="2px solid black" borderRadius={4} p={5} w={400}>
       <form onSubmit={handleSubmit}>
-        <Flex flexDirection="column" align="center">
+        <Flex align="center" flexDirection="column">
           <FormControl mb={5} w="100%">
             <FormLabel htmlFor="email">Email</FormLabel>
-            <Input placeholder="Enter your email" name="email" onChange={handleChange} value={values.email} />
+            <Input name="email" onChange={handleChange} placeholder="Enter your email" value={values.email} />
             <FormErrorMessage>{errors.email}</FormErrorMessage>
           </FormControl>
           <FormControl w="100%">
             <FormLabel htmlFor="password">Password</FormLabel>
             <Input
-              placeholder="Enter your password"
-              type="password"
               name="password"
               onChange={handleChange}
+              placeholder="Enter your password"
+              type="password"
               value={values.password}
             />
             <FormErrorMessage>{errors.password}</FormErrorMessage>
           </FormControl>
         </Flex>
-        <Flex flexDirection="column" align="center" mt={10}>
-          <Button type="submit" w="100%" bg="black" color="white">
+        <Flex align="center" flexDirection="column" mt={10}>
+          <Button bg="black" color="white" type="submit" w="100%">
             LOGIN
           </Button>
         </Flex>
