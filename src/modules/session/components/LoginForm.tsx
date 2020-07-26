@@ -56,10 +56,10 @@ const LoginForm = () => {
           />
           <FormPasswordInput
             errors={errors}
-            label="Repeat password"
+            label="Password"
             name="newPasswordConfirmation"
             onChange={handleChange}
-            placeholder="Repeat your new password"
+            placeholder="Enter your password"
             touched={touched}
             values={values}
           />
