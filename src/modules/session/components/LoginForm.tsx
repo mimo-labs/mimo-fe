@@ -18,8 +18,8 @@ type LoginFormValues = {
 
 // schema
 const validationSchema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().email('Must be a valid email').required('This field is required'),
+  password: yup.string().required('This field is required'),
 });
 
 const initialValues = {
