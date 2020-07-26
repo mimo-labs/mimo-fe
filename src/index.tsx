@@ -6,6 +6,7 @@ import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 // pages
 import Dashboard from 'modules/mocks/pages/Dashboard';
 import Recover from 'modules/session/pages/Recover';
+import Reset from 'modules/session/pages/Reset';
 import Login from 'modules/session/pages/Login';
 
 // hooks
@@ -29,6 +30,9 @@ const App = () => (
           </Route>
           <Route exact path={ROUTES.recover}>
             <Recover />
+          </Route>
+          <Route exact path={ROUTES.reset}>
+            <Reset />
           </Route>
           <Route path="*">
             <Dashboard />

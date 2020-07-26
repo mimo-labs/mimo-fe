@@ -4,38 +4,40 @@ import { useFormik } from 'formik';
 import { Box, Flex, Button } from '@chakra-ui/core';
 
 // hooks
-import { useLogin } from 'modules/session/hooks/useLogin';
+import { useResetPassword } from 'modules/session/hooks/useResetPassword';
 
 // ui components
-import FormInput from 'ui/components/FormInput';
 import FormPasswordInput from 'ui/components/FormPasswordInput';
 
 // types
 type LoginFormValues = {
-  email: string;
-  password: string;
+  newPassword: string;
+  newPasswordConfirmation: string;
 };
 
 // schema
 const validationSchema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  newPassword: yup.string().required('This field is required'),
+  newPasswordConfirmation: yup
+    .string()
+    .oneOf([yup.ref('newPassword')], 'Password must match')
+    .required('This field is required'),
 });
 
 const initialValues = {
-  email: '',
-  password: '',
+  newPassword: '',
+  newPasswordConfirmation: '',
 };
 
 const LoginForm = () => {
   // custom hooks
-  const { login } = useLogin();
+  const { resetPassword } = useResetPassword();
 
   // handlers
-  const onSubmit = (values: LoginFormValues) => login(values);
+  const onSubmit = (values: LoginFormValues) => resetPassword(values);
 
   // formik hooks
-  const { errors, handleChange, touched, values, handleSubmit } = useFormik<LoginFormValues>({
+  const { errors, handleChange, values, handleSubmit, touched } = useFormik<LoginFormValues>({
     initialValues,
     validationSchema,
     onSubmit,
@@ -45,12 +47,12 @@ const LoginForm = () => {
     <Box bg="white" border="2px solid black" borderRadius={4} p={5} w={400}>
       <form onSubmit={handleSubmit}>
         <Flex align="center" flexDirection="column">
-          <FormInput
+          <FormPasswordInput
             errors={errors}
-            label="Email"
-            name="email"
+            label="New password"
+            name="newPassword"
             onChange={handleChange}
-            placeholder="Enter your email"
+            placeholder="Enter your new password"
             touched={touched}
             values={values}
           />
@@ -66,7 +68,7 @@ const LoginForm = () => {
         </Flex>
         <Flex align="center" flexDirection="column" mt={10}>
           <Button bg="black" color="white" type="submit" w="100%">
-            LOGIN
+            CONFIRM
           </Button>
         </Flex>
       </form>
