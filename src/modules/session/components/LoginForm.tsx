@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { Box, Flex, Button } from '@chakra-ui/core';
@@ -27,7 +27,7 @@ const initialValues = {
   password: '',
 };
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
   // custom hooks
   const { login } = useLogin();
 

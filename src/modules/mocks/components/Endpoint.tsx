@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { AccordionItem, AccordionIcon, AccordionHeader, Box, AccordionPanel, Tag } from '@chakra-ui/core';
 
 // components
 import MockListItem from 'modules/mocks/components/MockListItem';
 
-const Endpoint = () => {
+const Endpoint: FC = () => {
   return (
     <AccordionItem _last={{ borderBottom: '2px solid black' }} bg="white" border="2px solid black" mb={2} w="100%">
       <AccordionHeader _focus={{ boxShadow: '0 0 0 4px rgba(212, 0, 27, 0.7)' }}>

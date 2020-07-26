@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 // components
 import LoginForm from 'modules/session/components/LoginForm';
@@ -6,7 +6,7 @@ import LoginForm from 'modules/session/components/LoginForm';
 // ui
 import SessionLayout from 'ui/layouts/SessionLayout';
 
-const Login = () => (
+const Login: FC = () => (
   <SessionLayout>
     <LoginForm />
   </SessionLayout>
