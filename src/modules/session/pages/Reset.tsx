@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 
 // components
-import LoginForm from 'modules/session/components/LoginForm';
+import ResetForm from 'modules/session/components/ResetForm';
 
 // ui
 import SessionLayout from 'ui/layouts/SessionLayout';
 
-const Login: FC = () => (
+const Reset: FC = () => (
   <SessionLayout>
-    <LoginForm />
+    <ResetForm />
   </SessionLayout>
 );
 
-export default Login;
+export default Reset;

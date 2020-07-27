@@ -6,7 +6,7 @@ import { ROUTES } from 'lib/routes';
 import { ENDPOINTS } from 'lib/api';
 
 // hooks
-import { useSessionContext } from 'hooks/common/useSession';
+import { useSessionContext } from 'modules/common/hooks/useSession';
 
 // types
 // import { User } from 'lib/types/common';

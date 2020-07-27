@@ -16,7 +16,8 @@ const useSession = ({ initialUserInfo }: useAuthProps) => {
   const isAuthenticated = () => {
     if (!userSession?.token) return false;
 
-    const isExpirationValid = true; // TODO: Logic to determine if token has expired or not already
+    // TODO: Add logic to determine if token has expired or not already
+    const isExpirationValid = false;
 
     return isExpirationValid;
   };

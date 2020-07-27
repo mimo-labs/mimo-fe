@@ -5,10 +5,12 @@ import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 
 // pages
 import Dashboard from 'modules/mocks/pages/Dashboard';
+import Recover from 'modules/session/pages/Recover';
+import Reset from 'modules/session/pages/Reset';
 import Login from 'modules/session/pages/Login';
 
 // hooks
-import { SessionProvider } from 'hooks/common/useSession';
+import { SessionProvider } from 'modules/common/hooks/useSession';
 
 // lib
 import { ROUTES } from 'lib/routes';
@@ -25,6 +27,12 @@ const App = () => (
         <Switch>
           <Route exact path={ROUTES.login}>
             <Login />
+          </Route>
+          <Route exact path={ROUTES.recover}>
+            <Recover />
+          </Route>
+          <Route exact path={ROUTES.reset}>
+            <Reset />
           </Route>
           <Route path="*">
             <Dashboard />

@@ -1,15 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Flex } from '@chakra-ui/core';
 
-type SessionLayoutProps = {
-  children: React.ReactNode | React.ReactNode[];
-};
-
-const SessionLayout = ({ children }: SessionLayoutProps) => (
+const SessionLayout: FC = ({ children }) => (
   <Flex
-    w="100vw"
-    h="100vh"
-    justify="center"
     align="center"
     background="repeating-linear-gradient(
     to right,
@@ -18,6 +11,9 @@ const SessionLayout = ({ children }: SessionLayoutProps) => (
     white 2px,
     white 60px
   )"
+    h="100vh"
+    justify="center"
+    w="100vw"
   >
     {children}
   </Flex>

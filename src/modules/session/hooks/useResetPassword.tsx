@@ -5,6 +5,7 @@ import { ENDPOINTS } from 'lib/api';
 
 type ResetPasswordValues = {
   newPassword: string;
+  newPasswordConfirmation: string;
 };
 
 export const useResetPassword = () => {
