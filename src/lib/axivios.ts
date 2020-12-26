@@ -3,7 +3,8 @@ import wretch, { Wretcher, WretcherError } from 'wretch';
 
 // lib
 import { ROUTES } from 'lib/routes';
-import { safeGetItem } from './helpers/localStorage';
+import { Axivios } from 'lib/types';
+import { safeGetItem } from 'lib/helpers/localStorage';
 
 // constants
 export const BASE_URL = process.env.REACT_APP_MIMO_API;
@@ -23,7 +24,7 @@ const handleExpiredToken = () => (_error: WretcherError, originalRequest: Wretch
 };
 
 // custom fetch
-export const axivios = (isSession = false): Wretcher => {
+export const axivios = ({ isSession = false }: Axivios = {}): Wretcher => {
   const { token } = safeGetItem('userSession');
 
   return wretch()

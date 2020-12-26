@@ -11,7 +11,7 @@ type ResetPasswordValues = {
 export const useResetPassword = () => {
   // methods
   const resetPassword = ({ newPassword }: ResetPasswordValues) =>
-    axivios().url(ENDPOINTS.session.reset()).post({ new_password: newPassword }).json();
+    axivios({ isSession: true }).url(ENDPOINTS.session.reset()).post({ new_password: newPassword }).json();
 
   return { resetPassword };
 };

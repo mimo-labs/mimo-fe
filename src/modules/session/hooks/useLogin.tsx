@@ -20,7 +20,7 @@ export const useLogin = () => {
 
   // methods
   const login = ({ email, password }: LoginValues) =>
-    axivios()
+    axivios({ isSession: true })
       .url(ENDPOINTS.session.login())
       .post({ email, password })
       .json()

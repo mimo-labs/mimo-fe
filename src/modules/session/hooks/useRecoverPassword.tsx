@@ -10,7 +10,7 @@ type RecoverPasswordValues = {
 export const useRecoverPassword = () => {
   // methods
   const recoverPassword = ({ email }: RecoverPasswordValues) =>
-    axivios().url(ENDPOINTS.session.recover()).post({ email }).json();
+    axivios({ isSession: true }).url(ENDPOINTS.session.recover()).post({ email }).json();
 
   return { recoverPassword };
 };
