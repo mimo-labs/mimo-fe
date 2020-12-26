@@ -1,22 +1,25 @@
 import React, { FC } from 'react';
-import { Flex, Select, IconButton } from '@chakra-ui/react';
+import { Flex, Select, Stack, IconButton } from '@chakra-ui/react';
 import { FiPhone } from 'react-icons/fi';
 
 const Header: FC = () => (
   <Flex alignItems="center" bg="white" borderBottom="2px solid black" justifyContent="space-between" pl={4}>
-    <Flex>
+    <Stack align="center" isInline spacing={4}>
       <Select
         _focus={{ boxShadow: '0 0 0 3px rgba(212, 0, 27, 0.7)' }}
         borderColor="black"
         borderWidth={2}
-        mr={4}
+        minW={44}
+        placeholder="Organization"
       >{`// organizations`}</Select>
       <Select
         _focus={{ boxShadow: '0 0 0 3px rgba(212, 0, 27, 0.7)' }}
         borderColor="black"
         borderWidth={2}
+        minW={44}
+        placeholder="Project"
       >{`// projects`}</Select>
-    </Flex>
+    </Stack>
     <Flex pr={4}>
       <IconButton
         _focus={{ boxShadow: '0 0 0 3px rgba(212, 0, 27, 0.7)' }}

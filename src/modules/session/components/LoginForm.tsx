@@ -2,9 +2,13 @@ import React, { FC } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { Box, Flex, Button } from '@chakra-ui/react';
+import { useHistory } from 'react-router-dom';
 
 // hooks
 import { useLogin } from 'modules/session/hooks/useLogin';
+
+// lib
+import { ROUTES } from 'lib/routes';
 
 // ui components
 import FormInput from 'ui/components/FormInput';
@@ -31,9 +35,15 @@ const LoginForm: FC = () => {
   // custom hooks
   const { login } = useLogin();
 
-  // handlers
-  const onSubmit = (values: LoginFormValues) => login(values);
+  // router hooks
+  const history = useHistory();
 
+  // handlers
+  const onSubmit = (values: LoginFormValues) => {
+    return login(values).then(() => {
+      history.push(ROUTES.home);
+    });
+  };
   // formik hooks
   const { errors, handleChange, touched, values, handleSubmit } = useFormik<LoginFormValues>({
     initialValues,

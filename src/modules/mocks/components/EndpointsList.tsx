@@ -5,7 +5,7 @@ import { Accordion } from '@chakra-ui/react';
 import Endpoint from 'modules/mocks/components/Endpoint';
 
 const EndpointsList: FC = () => (
-  <Accordion allowToggle>
+  <Accordion allowToggle p={4} w="full">
     <Endpoint />
   </Accordion>
 );

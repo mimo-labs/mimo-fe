@@ -3,10 +3,11 @@ import { useHistory } from 'react-router-dom';
 import { Link, Tag, Text } from '@chakra-ui/react';
 
 // prop types
-type MockProps = any;
+// @eslint-disable-next-line
+type Props = any;
 
 // component
-const MockListItem: FC<MockProps> = ({ mock, statusCode, statusColor, statusText }) => {
+const MockListItem: FC<Props> = ({ mock, statusCode, statusColor, statusText }) => {
   const { push } = useHistory();
 
   const handleMockClick = (id: MouseEvent<HTMLAnchorElement>) => push(`/mock/${id}`);

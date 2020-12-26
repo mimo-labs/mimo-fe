@@ -1,15 +1,14 @@
-import theme, { Theme } from '@chakra-ui/theme';
+// import theme, { Theme } from '@chakra-ui/theme';
+import { Theme, extendTheme } from '@chakra-ui/react';
 
 // fonts
 const fonts = {
-  ...theme.fonts,
   body: "'Fira Code', monospace",
 };
 
 // theme
-const customTheme: Theme = {
-  ...theme,
+const customTheme: Theme = extendTheme({
   fonts,
-};
+});
 
 export { customTheme as theme };

@@ -1,8 +1,6 @@
 import { axivios } from 'lib/axivios';
-import { useHistory } from 'react-router-dom';
 
 // lib
-import { ROUTES } from 'lib/routes';
 import { ENDPOINTS } from 'lib/api';
 
 // hooks
@@ -19,7 +17,6 @@ type LoginValues = {
 export const useLogin = () => {
   // router hooks
   const { setUserSession } = useSessionContext();
-  const history = useHistory();
 
   // methods
   const login = ({ email, password }: LoginValues) =>
@@ -31,10 +28,6 @@ export const useLogin = () => {
       .then((userData: any) => {
         setUserSession(userData);
         localStorage.setItem('userSession', JSON.stringify(userData));
-
-        setTimeout(() => {
-          history.push(ROUTES.home);
-        }, 700);
       })
       .catch((error) => console.error(error.message));
 
