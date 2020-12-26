@@ -11,7 +11,7 @@ export const API_URL = `${BASE_URL}/api/v1`;
 export const SESSION_URL = `${BASE_URL}`;
 
 // headers
-export const generateAuthHeader = (token: string) => `JWT ${token}`;
+export const generateAuthHeader = (token: string): string => `JWT ${token}`;
 
 // handlers
 const handleExpiredToken = () => (_error: WretcherError, originalRequest: Wretcher) => {
@@ -23,7 +23,7 @@ const handleExpiredToken = () => (_error: WretcherError, originalRequest: Wretch
 };
 
 // custom fetch
-export const axivios = (isSession: boolean = false) => {
+export const axivios = (isSession = false): Wretcher => {
   const { token } = safeGetItem('userSession');
 
   return wretch()

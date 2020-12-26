@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link, Tag, Text } from '@chakra-ui/react';
 
@@ -10,7 +10,7 @@ type Props = any;
 const MockListItem: FC<Props> = ({ mock, statusCode, statusColor, statusText }) => {
   const { push } = useHistory();
 
-  const handleMockClick = (id: MouseEvent<HTMLAnchorElement>) => push(`/mock/${id}`);
+  const handleMockClick = () => push(`/mock/${mock.id}`);
 
   return (
     <Link

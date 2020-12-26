@@ -44,6 +44,7 @@ const LoginForm: FC = () => {
       history.push(ROUTES.home);
     });
   };
+
   // formik hooks
   const { errors, handleChange, touched, values, handleSubmit } = useFormik<LoginFormValues>({
     initialValues,
@@ -67,7 +68,7 @@ const LoginForm: FC = () => {
           <FormPasswordInput
             errors={errors}
             label="Password"
-            name="newPasswordConfirmation"
+            name="password"
             onChange={handleChange}
             placeholder="Enter your password"
             touched={touched}
