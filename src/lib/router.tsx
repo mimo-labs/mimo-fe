@@ -12,7 +12,7 @@ type CustomRouteProps = { children: ReactNode; path: string };
 export const ProtectedRoute = ({ children, path }: CustomRouteProps) => {
   const { isAuthenticated } = useSessionContext();
 
-  if (!isAuthenticated()) return <Redirect to={ROUTES.login} />;
+  if (!isAuthenticated) return <Redirect to={ROUTES.login} />;
 
   return (
     <Route exact path={path}>
@@ -24,7 +24,7 @@ export const ProtectedRoute = ({ children, path }: CustomRouteProps) => {
 export const PublicRoute = ({ children, path }: CustomRouteProps) => {
   const { isAuthenticated } = useSessionContext();
 
-  if (isAuthenticated()) return <Redirect to={ROUTES.home} />;
+  if (isAuthenticated) return <Redirect to={ROUTES.home} />;
 
   return (
     <Route exact path={path}>
