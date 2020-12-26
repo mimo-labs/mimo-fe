@@ -17,7 +17,7 @@ const useSession = () => {
     if (!userSession?.token) return false;
 
     // TODO: Add logic to determine if token has expired or not already
-    const isExpirationValid = false;
+    const isExpirationValid = true;
 
     return isExpirationValid;
   }, [userSession]);
