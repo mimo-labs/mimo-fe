@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { Box, Flex, Button } from '@chakra-ui/core';
+import { Box, Flex, Button } from '@chakra-ui/react';
 
 // hooks
 import { useRecoverPassword } from 'modules/session/hooks/useRecoverPassword';

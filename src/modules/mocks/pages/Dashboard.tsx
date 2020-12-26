@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 
 // ui components
 import MainLayout from 'ui/layouts/MainLayout';

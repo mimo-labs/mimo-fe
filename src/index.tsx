@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import { ThemeProvider, CSSReset } from '@chakra-ui/react';
 
 // pages
 import Dashboard from 'modules/mocks/pages/Dashboard';

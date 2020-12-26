@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Flex } from '@chakra-ui/core';
+import { Flex } from '@chakra-ui/react';
 
 const SessionLayout: FC = ({ children }) => (
   <Flex

@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Link, Tag, Text } from '@chakra-ui/core';
+import { Link, Tag, Text } from '@chakra-ui/react';
 
 // prop types
 type MockProps = any;

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Flex, Select, IconButton } from '@chakra-ui/core';
+import { Flex, Select, IconButton } from '@chakra-ui/react';
+import { FiPhone } from 'react-icons/fi';
 
 const Header: FC = () => (
   <Flex alignItems="center" bg="white" borderBottom="2px solid black" justifyContent="space-between" pl={4}>
@@ -24,13 +25,11 @@ const Header: FC = () => (
         backgroundColor="white"
         border="2px solid black"
         borderRadius="50%"
-        h="3rem"
-        height="30px"
-        icon="phone"
+        icon={<FiPhone />}
         justifyContent="center"
+        minH={10}
+        minW={10}
         p={1}
-        padding="0"
-        w="3rem"
       />
     </Flex>
   </Flex>

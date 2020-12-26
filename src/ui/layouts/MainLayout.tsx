@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Grid, Flex } from '@chakra-ui/core';
+import { Grid, Flex } from '@chakra-ui/react';
 
 // components
 import Header from 'ui/components/Header';

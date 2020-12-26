@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useToast } from '@chakra-ui/core';
+import { useToast } from '@chakra-ui/react';
 
 // TODO: Should pass down error as well
 export function usePrintError(status: string | null) {
