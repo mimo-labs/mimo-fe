@@ -6,9 +6,9 @@ import { User } from 'lib/types';
 import { safeGetItem } from 'lib/helpers/localStorage';
 
 // lib
-const useSession = () => {
+const useSessionConstate = () => {
   // constants
-  const storedUserInfo = safeGetItem('userSession');
+  const storedUserInfo = safeGetItem<User>('userSession');
 
   // react hooks
   const [userSession, setUserSession] = useState<User>(storedUserInfo);
@@ -25,6 +25,6 @@ const useSession = () => {
   return { userSession, setUserSession, isAuthenticated };
 };
 
-const [SessionProvider, useSessionContext] = constate(useSession);
+const [SessionProvider, useSession] = constate(useSessionConstate);
 
-export { SessionProvider, useSessionContext };
+export { SessionProvider, useSession };

@@ -2,7 +2,10 @@
 export type Mock = any;
 
 // TODO: Change user type
-export type User = any;
+export type User = {
+  token: string;
+  id: number;
+};
 
 export type Axivios = {
   isSession?: boolean;

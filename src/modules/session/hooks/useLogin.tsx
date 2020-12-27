@@ -4,7 +4,7 @@ import { axivios } from 'lib/axivios';
 import { ENDPOINTS } from 'lib/api';
 
 // hooks
-import { useSessionContext } from 'modules/common/hooks/useSession';
+import { useSession } from 'modules/common/hooks/useSession';
 
 // types
 // import { User } from 'lib/types/common';
@@ -16,7 +16,7 @@ type LoginValues = {
 
 export const useLogin = () => {
   // router hooks
-  const { setUserSession } = useSessionContext();
+  const { setUserSession } = useSession();
 
   // methods
   const login = ({ email, password }: LoginValues) =>
