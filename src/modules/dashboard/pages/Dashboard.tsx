@@ -4,11 +4,11 @@ import React, { FC } from 'react';
 import MainLayout from 'ui/layouts/MainLayout';
 
 // components
-import EndpointsList from 'modules/mocks/components/EndpointsList';
+import Endpoints from 'modules/dashboard/components/Endpoints';
 
 const Dashboard: FC = () => (
   <MainLayout>
-    <EndpointsList />
+    <Endpoints />
   </MainLayout>
 );
 

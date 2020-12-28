@@ -1,6 +1,6 @@
 export const SESSION_ENDPOINTS = {
-  login: () => `/login`,
-  logout: () => `/logout`,
-  reset: () => `/password-reset`,
-  recover: () => `/password-reset-request`,
+  login: (): string => `/login`,
+  logout: (): string => `/logout`,
+  reset: (): string => `/password-reset`,
+  recover: (): string => `/password-reset-request`,
 };

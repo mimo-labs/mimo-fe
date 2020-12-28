@@ -3,10 +3,10 @@ import wretch, { Wretcher, WretcherError } from 'wretch';
 
 // lib
 import { ROUTES } from 'lib/routes';
-import { Axivios } from 'lib/types';
+import { Axivios, User } from 'lib/types';
 
 // common
-import { useSession } from 'modules/common/hooks/useSession';
+import { safelyGetItem } from 'lib/helpers';
 
 // constants
 export const BASE_URL = process.env.REACT_APP_MIMO_API;
@@ -27,11 +27,8 @@ const handleExpiredToken = () => (_error: WretcherError, originalRequest: Wretch
 
 // custom fetch
 export const axivios = ({ isSession = false }: Axivios = {}): Wretcher => {
-  // custom hooks
-  const { userSession } = useSession();
-
   // constants
-  const { token } = userSession;
+  const { token } = safelyGetItem<User>('userSession');
 
   const apiUrl = isSession ? SESSION_URL : API_URL;
   const authenticationToken = isSession ? '' : `token ${token}`;

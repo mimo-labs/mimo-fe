@@ -2,15 +2,24 @@ import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link, Tag, Text } from '@chakra-ui/react';
 
-// prop types
-// @eslint-disable-next-line
-type Props = any;
+// lib
+import { CODE_STATUSES } from 'lib/constants';
+import { Mock } from 'lib/types';
 
-// component
-const MockListItem: FC<Props> = ({ mock, statusCode, statusColor, statusText }) => {
+type Props = {
+  mock: Mock;
+};
+
+const MockListItem: FC<Props> = ({ mock }) => {
+  // router hooks
   const { push } = useHistory();
 
-  const handleMockClick = () => push(`/mock/${mock.id}`);
+  // constants
+  const { status_code, id } = mock;
+  const statusCodeTextAndColor = CODE_STATUSES[status_code];
+
+  // handlers
+  const handleMockClick = () => push(`/mock/${id}`);
 
   return (
     <Link
@@ -21,6 +30,9 @@ const MockListItem: FC<Props> = ({ mock, statusCode, statusColor, statusText }) 
       }}
       alignItems="center"
       as="button"
+      border="2px solid black"
+      borderBottomRadius="0.25rem"
+      borderTopRadius="0.25rem"
       d="flex"
       onClick={handleMockClick}
       w="full"
@@ -28,15 +40,15 @@ const MockListItem: FC<Props> = ({ mock, statusCode, statusColor, statusText }) 
       <Tag
         borderRadius="inherit"
         borderRight="2px solid black"
-        colorScheme={statusColor}
+        colorScheme={statusCodeTextAndColor.color}
         fontWeight="medium"
         mr={2}
         roundedBottomRight={0}
         roundedTopRight={0}
       >
-        {statusCode}
+        {status_code}
       </Tag>
-      <Text color="black">{statusText}</Text>
+      <Text color="black">{statusCodeTextAndColor.text}</Text>
     </Link>
   );
 };

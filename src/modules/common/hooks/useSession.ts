@@ -3,12 +3,12 @@ import constate from 'constate';
 
 // lib
 import { User } from 'lib/types';
-import { safeGetItem } from 'lib/helpers/localStorage';
+import { safelyGetItem } from 'lib/helpers';
 
 // lib
 const useSessionConstate = () => {
   // constants
-  const storedUserInfo = safeGetItem<User>('userSession');
+  const storedUserInfo = safelyGetItem<User>('userSession');
 
   // react hooks
   const [userSession, setUserSession] = useState<User>(storedUserInfo);
