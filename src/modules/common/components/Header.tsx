@@ -38,7 +38,7 @@ const Header: FC = () => {
         <Select
           _focus={{ boxShadow: '0 0 0 3px rgba(212, 0, 27, 0.7)' }}
           borderColor="black"
-          // borderWidth={2}
+          borderWidth={2}
           minW={44}
           onChange={handleOrganizationChange}
           placeholder="Organization"
