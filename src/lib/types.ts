@@ -2,6 +2,7 @@
 export type Verb = {
   id: number;
   name: string;
+  // TODO: It should return all the organization object, for consitency
   organziation: number;
 };
 
@@ -32,4 +33,21 @@ export type Axivios = {
 
 export type QueryParam = {
   [key: string]: unknown;
+};
+
+export type Organziation = {
+  id: number;
+  uuid: string;
+  profile: {
+    public_name: string;
+    avatar: string;
+  };
+  name: string;
+};
+
+export type Project = {
+  id: number;
+  name: string;
+  // TODO: It should return all the organization object, for consitency
+  organization: number;
 };

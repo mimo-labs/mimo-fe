@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Grid, Flex } from '@chakra-ui/react';
 
-// components
-import Header from 'ui/components/Header';
+// common
+import Header from 'modules/common/components/Header';
 
 const MainLayout: FC = ({ children }) => (
   <Grid

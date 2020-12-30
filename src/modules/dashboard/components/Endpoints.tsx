@@ -3,19 +3,29 @@ import { Accordion } from '@chakra-ui/react';
 
 // dashboard
 import EndpointAccordion from 'modules/dashboard/components/EndpointAccordion';
-import { useReadMocksAll } from 'modules/dashboard/hooks/useReadMocksAll';
+import { useReadMocksParams } from 'modules/dashboard/hooks/useReadMocksParams';
 import { parseMocks } from 'modules/dashboard/lib/parsers/parseMocks';
 
+// common
+import { useOrganizationAndProject } from 'modules/common/hooks/useOrganizationAndProject';
+
 const Endpoints: FC = () => {
-  const projectId = 12;
-  const { isLoading, isError, data } = useReadMocksAll({ projectId });
+  // custom hooks
+  const { projectId } = useOrganizationAndProject();
+  const { isLoading, isError, data: mocks } = useReadMocksParams({ projectId });
+
+  // constants
+  const hasMocks = Boolean(mocks);
 
   if (isLoading) return <h1>Loading</h1>;
 
   if (isError) return <h1>Error</h1>;
 
+  if (!hasMocks) return <h1>No mocks yet</h1>;
+
+  // parsers
   // @ts-expect-error
-  const { endpoints } = parseMocks({ mocks: data });
+  const { endpoints } = parseMocks({ mocks });
 
   return (
     <Accordion allowToggle p={4} w="full">

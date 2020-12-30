@@ -15,6 +15,7 @@ import Dashboard from 'modules/dashboard/pages/Dashboard';
 
 // common
 import { SessionProvider } from 'modules/common/hooks/useSession';
+import { OrganizationAndProjectConstateProvider } from 'modules/common/hooks/useOrganizationAndProject';
 
 // lib
 import { theme } from 'lib/theme';
@@ -28,25 +29,27 @@ const queryClient = new QueryClient();
 const App = () => (
   <ChakraProvider theme={theme}>
     <QueryClientProvider client={queryClient}>
-      <SessionProvider>
-        <Router>
-          <Switch>
-            <PublicRoute exact path={ROUTES.login}>
-              <Login />
-            </PublicRoute>
-            <PublicRoute exact path={ROUTES.recover}>
-              <Recover />
-            </PublicRoute>
-            <PublicRoute exact path={ROUTES.reset}>
-              <Reset />
-            </PublicRoute>
-            <ProtectedRoute path="*">
-              <Dashboard />
-            </ProtectedRoute>
-            {isDevelopment() ? <ReactQueryDevtools position="bottom-right" /> : null}
-          </Switch>
-        </Router>
-      </SessionProvider>
+      <OrganizationAndProjectConstateProvider>
+        <SessionProvider>
+          <Router>
+            <Switch>
+              <PublicRoute exact path={ROUTES.login}>
+                <Login />
+              </PublicRoute>
+              <PublicRoute exact path={ROUTES.recover}>
+                <Recover />
+              </PublicRoute>
+              <PublicRoute exact path={ROUTES.reset}>
+                <Reset />
+              </PublicRoute>
+              <ProtectedRoute path="*">
+                <Dashboard />
+              </ProtectedRoute>
+              {isDevelopment() ? <ReactQueryDevtools position="bottom-right" /> : null}
+            </Switch>
+          </Router>
+        </SessionProvider>
+      </OrganizationAndProjectConstateProvider>
     </QueryClientProvider>
   </ChakraProvider>
 );
